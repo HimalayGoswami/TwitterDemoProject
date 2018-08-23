@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TwitterDemoProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TwitterDemoProject_jar</output-path>
+    <root id="archive" name="TwitterDemoProject.jar">
+      <element id="module-output" name="TwitterDemoProject" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../twitter4j-4.0.7 (himalay.goswami@lithium.com)/lib/twitter4j-core-4.0.7.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
