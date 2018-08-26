@@ -11,13 +11,14 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <twitter4j-core.version>4.0.7</twitter4j-core.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.twitter4j</groupId>
             <artifactId>twitter4j-core</artifactId>
-            <version>4.0.7</version>
+            <version>${twitter4j-core.version}</version>
         </dependency>
     </dependencies>
 
