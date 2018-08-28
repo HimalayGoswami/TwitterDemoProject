@@ -31,4 +31,9 @@ public class RetrieveTimeline {
         System.out.println("---------------");
         homeTimeLine.forEach(status -> System.out.println("\n" + status.getText()));
     }
+
+    public static ResponseList<Status> getHomeTimeLine() throws TwitterException {
+        Twitter twitter = new TwitterFactory("../").getInstance();
+        return twitter.getHomeTimeline();
+    }
 }
