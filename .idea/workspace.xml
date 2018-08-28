@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e247057-0d74-4a57-b828-86b59e9c5dd7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TimeLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TimeLineResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/Tweet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TweetResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TwitterDemoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TwitterDemoProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/DemoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/DemoMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/TwitterDemoProject-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TwitterDemo/DemoMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TwitterDemo/PublishTweet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/TwitterDemo/RetrieveTimeline.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/twitter4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-TwitterDemoProject-1.0-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,6 +29,7 @@
           <entry key="md" value="2" />
           <entry key="properties" value="2" />
           <entry key="xml" value="4" />
+          <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -65,6 +41,7 @@
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="4" />
+          <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -73,6 +50,7 @@
           <entry key="java" value="1247" />
           <entry key="properties" value="23" />
           <entry key="xml" value="141" />
+          <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -81,20 +59,30 @@
           <entry key="Manifest" value="19" />
           <entry key="Properties" value="23" />
           <entry key="XML" value="141" />
+          <entry key="YAML" value="5" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TimeLineResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="1" selection-start-line="29" selection-end-line="29" selection-end-column="1" />
+            <state relative-caret-position="420">
+              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/TwitterDemoConf.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -166,15 +154,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar!/javax/ws/rs/core/Response.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="320" column="52" selection-start-line="320" selection-start-column="52" selection-end-line="320" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TimeLine.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -225,6 +204,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TimeLineResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/DemoMain.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/TwitterDemoConf.yml" />
       </list>
     </option>
   </component>
@@ -335,6 +315,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TwitterDemoProject" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TwitterDemoProject" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TwitterDemoProject" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -343,7 +340,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535447084463" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535447683950" />
     <property name="settings.editor.selected.configurable" value="com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -402,7 +399,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="969" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -744,11 +740,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TimeLineResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="1" selection-start-line="29" selection-end-line="29" selection-end-column="1" />
+        <state relative-caret-position="420">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/TwitterDemoConf.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
         </state>
       </provider>
     </entry>
