@@ -108,7 +108,7 @@ public class DemoMainTest {
         doCallRealMethod().when(demoMain).getAccessToken(any(String[].class));
         doNothing().when(demoMain).populateExistingUserProperties(any(File.class),
                 any(Properties.class), any(String[].class));
-        doNothing().when(demoMain).pupulateDefaultTwitter4jProperties(any(Properties.class));
+        //doNothing().when(demoMain).pupulateDefaultTwitter4jProperties(any(Properties.class));
         doThrow(new IOException()).when(demoMain).populateAccessKeyToken(any(Properties.class));
         Properties properties = mock(Properties.class);
         PowerMockito.whenNew(Properties.class).withAnyArguments().thenReturn(properties);
@@ -129,9 +129,12 @@ public class DemoMainTest {
         PowerMockito.whenNew(FileOutputStream.class).withAnyArguments().thenReturn(fileOutputStream);
         doNothing().when(fileOutputStream).close();
         doNothing().when(properties).store(any(OutputStream.class), any(String.class));
+
+        Twitter twitter = mock(Twitter.class);
+        ITwitter iTwitter = ITwitterTest.getMockedITwitterInstance(twitter);
+        doNothing().when(twitter).setOAuthConsumer(any(String.class), any(String.class));
         demoMain.getAccessToken(new String[]{"UserKey", "SecretKey"});
         verify(fileOutputStream).close();
-
     }
 
     @Test
@@ -162,15 +165,6 @@ public class DemoMainTest {
 
         args = new String[]{"userKey, userSecretKey"};
         demoMain.populateExistingUserProperties(null, properties, args);
-    }
-
-    @Test
-    public void pupulateDefaultTwitter4jProperties() throws IOException {
-        Properties properties = mock(Properties.class);
-        doNothing().when(properties).load(any(InputStream.class));
-        DemoMain demoMain = new DemoMain();
-        demoMain.pupulateDefaultTwitter4jProperties(properties);
-        verify(properties).load(any(InputStream.class));
     }
 
     @Test

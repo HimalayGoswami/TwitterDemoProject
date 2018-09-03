@@ -69,14 +69,15 @@ public class DemoMain {
 
             String oldConsumerKey = prop.getProperty("oauth.consumerKey");
 
-            if (oldConsumerKey.equals(args[0])) {
+            if (oldConsumerKey!=null && oldConsumerKey.equals(args[0])) {
                 return;
             }
 
             prop.setProperty("oauth.consumerKey", args[0]);
             prop.setProperty("oauth.consumerSecret", args[1]);
 
-            pupulateDefaultTwitter4jProperties(prop);
+            ITwitter iTwitter = ITwitter.getInstance();
+            iTwitter.setOAuthConsumer(args[0], args[1]);
 
             populateAccessKeyToken(prop);
 
@@ -105,12 +106,6 @@ public class DemoMain {
                 System.exit(-1);
             }
         }
-    }
-
-    protected void pupulateDefaultTwitter4jProperties(Properties prop) throws IOException {
-        InputStream inStream = DemoMain.class.getClassLoader().getResourceAsStream("twitter4j.properties");
-        prop.load(inStream);
-        inStream.close();
     }
 
     protected void populateAccessKeyToken(Properties prop) throws IOException {

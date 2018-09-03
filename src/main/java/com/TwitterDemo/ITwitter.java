@@ -66,4 +66,9 @@ public class ITwitter {
     public AccessToken getOAuthAccessToken(RequestToken requestToken, String pin) throws TwitterException {
         return twitter4j.getOAuthAccessToken(requestToken, pin);
     }
+
+    public void setOAuthConsumer(String consumerKey, String consumerSecret) {
+        twitter4j.setOAuthConsumer(consumerKey, consumerSecret);
+    }
+
 }
