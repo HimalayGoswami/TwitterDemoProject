@@ -181,6 +181,7 @@
     <mockito-all.version>1.9.5</mockito-all.version>
     <power-module-junit4.version>1.7.4</power-module-junit4.version>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <jackson-dataformat-yaml.version>2.9.2</jackson-dataformat-yaml.version>
     <powermock-module-junit4-rule.version>1.7.4</powermock-module-junit4-rule.version>
     <powermock-api-mockito>1.7.4</powermock-api-mockito>
   </properties>

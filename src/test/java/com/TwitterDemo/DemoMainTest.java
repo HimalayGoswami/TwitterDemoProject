@@ -1,6 +1,7 @@
 package com.TwitterDemo;
 
 import com.TwitterDemo.api.Tweet;
+import io.dropwizard.Configuration;
 import org.junit.Rule;
 import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
@@ -18,6 +19,7 @@ import java.util.Properties;
 import static com.TwitterDemo.ITwitterTest.getMockedITwitterInstance;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.powermock.api.mockito.PowerMockito.*;
@@ -208,5 +210,18 @@ public class DemoMainTest {
 
         System.setSecurityManager(securityManager);
         ITwitter.setInstance(null);
+    }
+
+    @Test
+    public void getAccessTokenFromConfiguration() throws Exception {
+        Twitter twitter = mock(Twitter.class);
+        ITwitter iTwitter = getMockedITwitterInstance(twitter);
+        doNothing().when(twitter).setOAuthConsumer(any(String.class), any(String.class));
+        DemoMain demoMain = mock(DemoMain.class);
+        doCallRealMethod().when(demoMain).getAccessToken(any(TwitterDemoConfiguration.class));
+        TwitterDemoConfiguration twitterDemoConfiguration = mock(TwitterDemoConfiguration.class);
+        when(twitterDemoConfiguration.getConsumerKey()).thenReturn("consumerKey");
+        when(twitterDemoConfiguration.getConsumerSecret()).thenReturn("consumerKeySecret");
+        demoMain.getAccessToken(twitterDemoConfiguration);
     }
 }

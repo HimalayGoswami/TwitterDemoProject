@@ -147,4 +147,11 @@ public class DemoMain {
         }
     }
 
+    public void getAccessToken(TwitterDemoConfiguration twitterDemoConfiguration) throws IOException {
+        ITwitter iTwitter = ITwitter.getInstance();
+        iTwitter.setOAuthConsumer(twitterDemoConfiguration.getConsumerKey(), twitterDemoConfiguration.getConsumerSecret());
+
+        Properties prop = new Properties();
+        populateAccessKeyToken(prop);
+    }
 }
