@@ -13,3 +13,5 @@ Instructions to use the application are as following:
 7. Rest APIs available are as following:
   a) http://localhost:8080/TimeLine
   b) http://localhost:8080/Tweet
+
+To view Code Coverage report for Tests please open Target/site/jacoco/index.html with chrome after mvn install.
