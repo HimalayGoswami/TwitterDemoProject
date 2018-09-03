@@ -1,5 +1,6 @@
 package com.TwitterDemo.api;
 
+import com.TwitterDemo.ITwitter;
 import com.TwitterDemo.RetrieveTimeline;
 import com.codahale.metrics.annotation.Timed;
 import twitter4j.TwitterException;
@@ -14,16 +15,23 @@ import javax.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 public class TimeLineResource {
 
+    private RetrieveTimeline retrieveTimeline;
+
+    public TimeLineResource(ITwitter iTwitter) {
+        retrieveTimeline = new RetrieveTimeline(iTwitter);
+    }
+
     @GET
     @Timed
     public Response getTimeLine() {
         TimeLine timeLine = null;
         try {
-            timeLine = new TimeLine(RetrieveTimeline.getHomeTimeLine());
+
+            timeLine = new TimeLine(retrieveTimeline.getHomeTimeLine());
         } catch (TwitterException e) {
             e.printStackTrace();
             return Response.status(Response.Status.fromStatusCode(e.getStatusCode())).type(MediaType.APPLICATION_JSON)
-                    .entity(e.getErrorMessage()).build();
+                    .entity(e.getMessage()).build();
         }
         return Response.status(Response.Status.OK).entity(timeLine).build();
     }

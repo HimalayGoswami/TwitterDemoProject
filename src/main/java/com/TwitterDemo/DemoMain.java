@@ -10,12 +10,14 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class DemoMain {
+
     public static void main(String[] args) {
 
-       getAccessToken(args);
+        DemoMain demoMain = new DemoMain();
+        demoMain.getAccessToken(args);
 
-       boolean closeTheApp = false;
-       while (closeTheApp != true){
+        boolean closeTheApp = false;
+        while (closeTheApp != true){
            System.out.println("\nOperations: ");
            System.out.println("1. Retrieve Timeline.");
            System.out.println("2. Publish Tweet.");
@@ -26,7 +28,8 @@ public class DemoMain {
            switch (opNumber){
                case 1:
                    try {
-                       RetrieveTimeline.retrieveTheTimeline();
+                       RetrieveTimeline retrieveTimeline = new RetrieveTimeline(ITwitter.getInstance());
+                       retrieveTimeline.retrieveTheTimeline();
                    } catch (TwitterException e) {
                        e.printStackTrace();
                        System.out.println("Failed to retrieve timeline: " + e.getMessage());
@@ -35,14 +38,12 @@ public class DemoMain {
 
                case 2:
                    try {
-                       String tweet = PublishTweet.getTweetInput();
-                       PublishTweet.publishTheTweet(tweet);
+                       PublishTweet publishTweet = new PublishTweet(ITwitter.getInstance());
+                       String tweet = publishTweet.getTweetInput();
+                       publishTweet.publishTheTweet(tweet);
                    } catch (TwitterException te) {
                        te.printStackTrace();
                        System.out.println("Failed to tweet: " + te.getMessage());
-                   } catch (Exception e) {
-                       e.printStackTrace();
-                       System.out.println("Failed to tweet: " + e.getMessage());
                    }
                    break;
 
@@ -52,65 +53,70 @@ public class DemoMain {
            }
            if(closeTheApp)
                break;
-       }
+           }
         System.out.println("Exiting the Twitter Demo Application.");
         System.exit(0);
     }
 
-    protected static void getAccessToken(String[] args) {
+    protected void getAccessToken(String[] args) {
 
-        Properties prop = new Properties();
         try {
+            Properties prop = new Properties();
 
-            try {
-                File fileObject = new File("twitter4j.properties");
-                InputStream inStream = new FileInputStream(fileObject);
-                prop.load(inStream);
-                inStream.close();
-            } catch (FileNotFoundException e) {
-                // consumer key/secret are not set in twitter4j.properties
-                System.out.println("Please pass the [consumer key] [consumer secret] arguments");
-                System.exit(-1);
-            }
+            File fileObject = new File("twitter4j.properties");
 
-            if (null == prop.getProperty("oauth.consumerKey")
-                    && null == prop.getProperty("oauth.consumerSecret")) {
-                // consumer key/secret are not set in twitter4j.properties
-                System.out.println("Please pass the [consumer key] [consumer secret] arguments");
-                System.exit(-1);
-            }
-            InputStream inStream = DemoMain.class.getClassLoader().getResourceAsStream("twitter4j.properties");
-            prop.load(inStream);
-            inStream.close();
+            populateExistingUserProperties(fileObject, prop, args);
+
             String oldConsumerKey = prop.getProperty("oauth.consumerKey");
-            String oldConsumerSecret = prop.getProperty("oauth.consumerSecret");
+
+            if (oldConsumerKey.equals(args[0])) {
+                return;
+            }
+
             prop.setProperty("oauth.consumerKey", args[0]);
             prop.setProperty("oauth.consumerSecret", args[1]);
 
-            if (oldConsumerKey == null || !oldConsumerKey.equals(args[0])
-                    || oldConsumerSecret == null || !oldConsumerSecret.equals(args[1])) {
-                prop.remove("oauth.accessToken");
-                prop.remove("oauth.accessTokenSecret");
-            }
+            pupulateDefaultTwitter4jProperties(prop);
 
-            File fileObject = new File("twitter4j.properties");
+            populateAccessKeyToken(prop);
+
             FileOutputStream out = new FileOutputStream(fileObject);
             prop.store(out, "twitter4j.properties");
             out.close();
             System.out.println("ConsumerKey & consumerSecret Stored.");
+            System.out.println("Successfully stored access token to twitter4j.properties.");
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.exit(-1);
         }
-        if (null != prop.getProperty("oauth.accessToken")
-                && null != prop.getProperty("oauth.accessTokenSecret")) {
-            System.out.println("Access Token & access Token Secret are available.");
-            return;
-        }
 
+    }
+
+    protected void populateExistingUserProperties(File fileObject, Properties prop, String[] args)
+            throws IOException {
         try {
-            Twitter twitter = new TwitterFactory().getInstance();
-            RequestToken requestToken = twitter.getOAuthRequestToken();
+            InputStream inStream = new FileInputStream(fileObject);
+            prop.load(inStream);
+            inStream.close();
+        } catch (FileNotFoundException e) {
+            // consumer key/secret are not set in twitter4j.properties
+            if(args.length<2){
+                System.out.println("Please pass the [consumer key] [consumer secret] arguments");
+                System.exit(-1);
+            }
+        }
+    }
+
+    protected void pupulateDefaultTwitter4jProperties(Properties prop) throws IOException {
+        InputStream inStream = DemoMain.class.getClassLoader().getResourceAsStream("twitter4j.properties");
+        prop.load(inStream);
+        inStream.close();
+    }
+
+    protected void populateAccessKeyToken(Properties prop) throws IOException {
+        try {
+            ITwitter iTwitter = ITwitter.getInstance();
+            RequestToken requestToken = iTwitter.getOAuthRequestToken();
             System.out.println("Got request token.");
             AccessToken accessToken = null;
 
@@ -123,7 +129,7 @@ public class DemoMain {
                 String pin = br.readLine();
                 try {
                     if (pin.length() > 0) {
-                        accessToken = twitter.getOAuthAccessToken(requestToken, pin);
+                        accessToken = iTwitter.getOAuthAccessToken(requestToken, pin);
                     } else {
                         System.out.println("Incorrect PIN, Please try again.");
                     }
@@ -137,18 +143,11 @@ public class DemoMain {
 
             prop.setProperty("oauth.accessToken", accessToken.getToken());
             prop.setProperty("oauth.accessTokenSecret", accessToken.getTokenSecret());
-            File fileObject = new File("twitter4j.properties");
-            FileOutputStream out = new FileOutputStream(fileObject);
-            prop.store(out, "twitter4j.properties");
-            out.close();
-            System.out.println("Successfully stored access token to twitter4j.properties.");
+
+            br.close();
         } catch (TwitterException te) {
             te.printStackTrace();
             System.out.println("Failed to get accessToken: " + te.getMessage());
-            System.exit(-1);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-            System.out.println("Failed to read the system input.");
             System.exit(-1);
         }
     }

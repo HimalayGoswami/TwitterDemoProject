@@ -1,23 +1,39 @@
 package com.TwitterDemo.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import twitter4j.ResponseList;
-import twitter4j.Status;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TimeLine {
-    private ResponseList<Status> statuses;
 
-    public TimeLine(ResponseList<Status> statuses) {
+    private List<String> statuses;
+
+    public TimeLine(List<String> statuses) {
         this.statuses = statuses;
     }
 
     @JsonProperty
     public List<String> getStatuses() {
-        List<String> statusTexts = new ArrayList<>();
-        statuses.forEach(status -> statusTexts.add(status.getText()));
-        return statusTexts;
+        return statuses;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (null == obj) {
+            return false;
+        } else if (this == obj) {
+            return true;
+        } else if(obj instanceof TimeLine) {
+            TimeLine timeLine = (TimeLine)obj;
+            if(this.statuses.size() == timeLine.getStatuses().size()){
+                for(int i=0; i<statuses.size(); i++){
+                    if(!statuses.get(i).equals(timeLine.getStatuses().get(i))){
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }
