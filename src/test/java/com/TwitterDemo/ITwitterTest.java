@@ -59,10 +59,10 @@ public class ITwitterTest {
         when(twitter.getHomeTimeline()).thenReturn(statusResponseList);
         when(twitter.getUserTimeline()).thenReturn(statusResponseList);
 
-        List<String> statuses = iTwitter.getHomeTimeline();
+        List<String> statuses = iTwitter.getUserTimeline();
         assertTrue("status1".equals(statuses.get(0)));
 
-        statuses = iTwitter.getUserTimeline();
+        statuses = iTwitter.getHomeTimeline();
         assertTrue("status1".equals(statuses.get(0)));
 
         iTwitter.setInstance(null);

@@ -1,12 +1,16 @@
 package com.TwitterDemo;
 
+import org.slf4j.LoggerFactory;
 import twitter4j.*;
 
+import java.lang.invoke.MethodHandles;
 import java.util.List;
 
 public class RetrieveTimeline {
 
     private ITwitter twitter;
+
+    private final static org.slf4j.Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public RetrieveTimeline(ITwitter iTwitter){
         twitter = iTwitter;
@@ -22,6 +26,7 @@ public class RetrieveTimeline {
             System.exit(0);
         } catch (TwitterException te) {
             te.printStackTrace();
+            logger.error("Error while retrieving timeline.", te);
             System.out.println("Failed to retrieve timeline: " + te.getMessage());
             System.exit(-1);
         }
