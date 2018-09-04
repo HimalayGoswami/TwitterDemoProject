@@ -1,12 +1,14 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.services.ITwitter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.rule.PowerMockRule;
+import twitter4j.Status;
 import twitter4j.TwitterException;
+import twitter4j.User;
 
 
 import java.io.ByteArrayInputStream;
@@ -38,7 +40,12 @@ public class PublishTweetTest {
         ITwitter iTwitter = mock(ITwitter.class);
         PowerMockito.mockStatic(ITwitter.class);
         when(ITwitter.getInstance()).thenReturn(iTwitter);
-        when(iTwitter.publishTheTweet("Tweet!!!")).thenReturn("Tweet!!!");
+        Status status = mock(Status.class);
+        when(status.getText()).thenReturn("dfsdggferr");
+        when(iTwitter.publishTheTweet("dfsdggferr")).thenReturn(status);
+        User user = mock(User.class);
+        when(status.getUser()).thenReturn(user);
+        when(iTwitter.publishTheTweet("Tweet!!!")).thenReturn(status);
 
         SecurityManager securityManager = System.getSecurityManager();
         System.setSecurityManager(new NoExitSecurityManager());

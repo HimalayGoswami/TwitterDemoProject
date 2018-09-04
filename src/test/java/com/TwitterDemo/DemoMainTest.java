@@ -1,7 +1,7 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.Resources.Tweet;
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.models.Tweet;
+import com.TwitterDemo.services.ITwitter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
@@ -16,7 +16,6 @@ import java.io.*;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 
-import static com.TwitterDemo.ITwitterTest.getMockedITwitterInstance;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;

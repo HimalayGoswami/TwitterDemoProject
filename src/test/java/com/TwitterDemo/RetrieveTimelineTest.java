@@ -1,6 +1,7 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.models.Tweet;
+import com.TwitterDemo.services.ITwitter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -43,13 +44,13 @@ public class RetrieveTimelineTest {
         PowerMockito.mockStatic(ITwitter.class);
         when(ITwitter.getInstance()).thenReturn(iTwitter);
 
-        List<String> userTweets = new ArrayList<>();
-        userTweets.add("userTweet1");
-        userTweets.add("userTweet2");
+        List<Tweet> userTweets = new ArrayList<>();
+        userTweets.add(new Tweet("userTweet1"));
+        userTweets.add(new Tweet("userTweet2"));
 
-        List<String> homeTweets = new ArrayList<>();
-        homeTweets.add("homeTweet1");
-        homeTweets.add("homeTweet2");
+        List<Tweet> homeTweets = new ArrayList<>();
+        homeTweets.add(new Tweet("userTweet1"));
+        homeTweets.add(new Tweet("userTweet2"));
 
         when(iTwitter.getHomeTimeline()).thenReturn(userTweets);
         when(iTwitter.getUserTimeline()).thenReturn(homeTweets);

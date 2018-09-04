@@ -1,9 +1,9 @@
 package com.TwitterDemo;
 
 
-import com.TwitterDemo.Resources.TimeLineResource;
-import com.TwitterDemo.Resources.TweetResource;
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.resources.TimeLineResource;
+import com.TwitterDemo.resources.TweetResource;
+import com.TwitterDemo.services.ITwitter;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 

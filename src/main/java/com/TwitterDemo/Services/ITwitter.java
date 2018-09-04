@@ -1,6 +1,7 @@
-package com.TwitterDemo.Services;
+package com.TwitterDemo.services;
 
 import com.TwitterDemo.TwitterDemoConfiguration;
+import com.TwitterDemo.models.Tweet;
 import org.slf4j.LoggerFactory;
 import twitter4j.*;
 import twitter4j.auth.AccessToken;
@@ -48,24 +49,24 @@ public class ITwitter {
     @Deprecated
     public static void setInstance(ITwitter twitter) { _ref = twitter; };
 
-    public List<String> getHomeTimeline() throws TwitterException {
+    public List<Tweet> getHomeTimeline() throws TwitterException {
         ResponseList<Status> statuses = twitter4j.getHomeTimeline();
-        return getStatuseTexts(statuses);
+        return getTweets(statuses);
     }
 
-    private List<String> getStatuseTexts(ResponseList<Status> statuses) {
-        List<String> statusTexts = new ArrayList<>();
-        statuses.forEach(status -> statusTexts.add(status.getText()));
-        return statusTexts;
+    private List<Tweet> getTweets(ResponseList<Status> statuses) {
+        List<Tweet> tweets = new ArrayList<>();
+        statuses.forEach(status -> tweets.add(new Tweet(status)));
+        return tweets;
     }
 
-    public String publishTheTweet(String tweet) throws TwitterException {
-        return twitter4j.updateStatus(tweet).getText();
+    public Status publishTheTweet(String tweet) throws TwitterException {
+        return twitter4j.updateStatus(tweet);
     }
 
-    public List<String> getUserTimeline() throws TwitterException {
+    public List<Tweet> getUserTimeline() throws TwitterException {
         ResponseList<Status> statuses = twitter4j.getUserTimeline();
-        return getStatuseTexts(statuses);
+        return getTweets(statuses);
     }
 
     public RequestToken getOAuthRequestToken() throws TwitterException {

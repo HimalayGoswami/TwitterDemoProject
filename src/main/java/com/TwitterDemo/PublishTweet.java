@@ -1,9 +1,10 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.Resources.Tweet;
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.models.Tweet;
+import com.TwitterDemo.services.ITwitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import twitter4j.Status;
 import twitter4j.TwitterException;
 
 import java.lang.invoke.MethodHandles;
@@ -44,7 +45,7 @@ public class PublishTweet {
     }
 
     public Tweet publishTheTweet(String tweet) throws TwitterException {
-        String status = twitter.publishTheTweet(tweet);
+        Status status = twitter.publishTheTweet(tweet);
         System.out.println("Successfully tweeted [" + status + "].");
         return new Tweet(status);
     }

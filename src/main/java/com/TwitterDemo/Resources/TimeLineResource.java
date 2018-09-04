@@ -1,6 +1,7 @@
-package com.TwitterDemo.Resources;
+package com.TwitterDemo.resources;
 
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.models.TimeLine;
+import com.TwitterDemo.services.ITwitter;
 import com.TwitterDemo.RetrieveTimeline;
 import com.codahale.metrics.annotation.Timed;
 import org.slf4j.LoggerFactory;
