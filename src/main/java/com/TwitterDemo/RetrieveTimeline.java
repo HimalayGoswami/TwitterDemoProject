@@ -34,7 +34,7 @@ public class RetrieveTimeline {
         }
     }
 
-    protected List<Tweet> getUserTimeLine() throws TwitterException {
+    public List<Tweet> getUserTimeLine() throws TwitterException {
         return twitter.getUserTimeline();
     }
 

@@ -56,7 +56,8 @@ public class ITwitter {
 
     private List<Tweet> getTweets(ResponseList<Status> statuses) {
         List<Tweet> tweets = new ArrayList<>();
-        statuses.forEach(status -> tweets.add(new Tweet(status)));
+        if(statuses != null)
+            statuses.forEach(status -> tweets.add(new Tweet(status)));
         return tweets;
     }
 

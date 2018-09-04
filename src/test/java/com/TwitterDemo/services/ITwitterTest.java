@@ -78,6 +78,10 @@ public class ITwitterTest {
         statuses = iTwitter.getHomeTimeline();
         assertTrue("status1".equals(statuses.get(0).getTweet()));
 
+        when(twitter.getUserTimeline()).thenReturn(null);
+        statuses = iTwitter.getUserTimeline();
+        assertTrue(statuses.size() == 0);
+
         iTwitter.setInstance(null);
     }
 
@@ -87,7 +91,6 @@ public class ITwitterTest {
         Status status = mock(Status.class);
         Twitter twitter = mock(Twitter.class);
         ITwitter iTwitter = getMockedITwitterInstance(twitter);
-
 
         String tweet = "Hello Twitter!!!";
         when(status.getText()).thenReturn(tweet);

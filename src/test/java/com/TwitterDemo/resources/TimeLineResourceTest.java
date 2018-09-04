@@ -48,4 +48,36 @@ public class TimeLineResourceTest {
 
     }
 
+    @Test
+    public void getFilteredUserTweets() throws TwitterException {
+
+        List<Tweet> statuses = new ArrayList<>();
+        statuses.add(new Tweet("yjjsdfefsdffsdff"));
+        statuses.add(new Tweet("s343dfeererf"));
+        statuses.add(new Tweet("sdrer33drf"));
+        TimeLine timeLine = new TimeLine(statuses);
+
+        ITwitter iTwitter = mock(ITwitter.class);
+
+        Mockito.when(iTwitter.getUserTimeline()).thenReturn(statuses);
+        TimeLineResource timeLineResource = new TimeLineResource(iTwitter);
+        String keyword = "3";
+        Response response = timeLineResource.getFilteredUserTweets(keyword);
+        TimeLine responseTimeline = ((TimeLine) response.getEntity());
+        assertTrue(responseTimeline.getStatuses().size() == 2);
+        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+
+
+        TwitterException twitterException = new TwitterException("{errors: {'message': 'twitterException'," +
+                "'code': '777'}}", new Exception(), 400);
+        Mockito.when(iTwitter.getUserTimeline()).thenThrow(twitterException);
+        response = timeLineResource.getFilteredUserTweets(keyword);
+        String responseEntity = (String) response.getEntity();
+        System.out.println(responseEntity);
+        System.out.println(twitterException.getMessage());
+        assertEquals(twitterException.getMessage(), responseEntity);
+        assertEquals(Response.Status.BAD_REQUEST.getStatusCode(), response.getStatus());
+
+    }
+
 }
