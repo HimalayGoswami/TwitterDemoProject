@@ -1,6 +1,7 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.api.Tweet;
+import com.TwitterDemo.Resources.Tweet;
+import com.TwitterDemo.Services.ITwitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import twitter4j.TwitterException;

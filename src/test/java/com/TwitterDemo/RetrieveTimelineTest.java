@@ -1,5 +1,6 @@
 package com.TwitterDemo;
 
+import com.TwitterDemo.Services.ITwitter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mockito;

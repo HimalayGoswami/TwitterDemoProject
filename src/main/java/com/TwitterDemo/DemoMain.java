@@ -1,9 +1,8 @@
 package com.TwitterDemo;
+import com.TwitterDemo.Services.ITwitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import twitter4j.TwitterException;
-import twitter4j.auth.AccessToken;
-import twitter4j.auth.RequestToken;
 
 import java.io.*;
 import java.lang.invoke.MethodHandles;
@@ -84,7 +83,7 @@ public class DemoMain {
             ITwitter iTwitter = ITwitter.getInstance();
             iTwitter.setOAuthConsumer(args[0], args[1]);
 
-            populateAccessKeyToken(prop);
+            iTwitter.populateAccessKeyToken(prop);
 
             FileOutputStream out = new FileOutputStream(fileObject);
             prop.store(out, "twitter4j.properties");
@@ -116,53 +115,4 @@ public class DemoMain {
         }
     }
 
-    protected void populateAccessKeyToken(Properties prop) throws IOException {
-        try {
-            ITwitter iTwitter = ITwitter.getInstance();
-            RequestToken requestToken = iTwitter.getOAuthRequestToken();
-            System.out.println("Got request token.");
-            AccessToken accessToken = null;
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            while (null == accessToken) {
-                System.out.println("Open the following URL and grant access to your account:");
-                System.out.println(requestToken.getAuthorizationURL());
-
-                System.out.print("Enter the PIN(if available) and hit enter after you granted access.[PIN]:");
-                String pin = br.readLine();
-                try {
-                    logger.info("PIN entered: {}", pin);
-                    if (pin.length() > 0) {
-                        accessToken = iTwitter.getOAuthAccessToken(requestToken, pin);
-                    } else {
-                        System.out.println("Incorrect PIN, Please try again.");
-                    }
-                } catch (TwitterException te) {
-                    te.printStackTrace();
-                    logger.error("Error while getting Access Token: ", te);
-                }
-            }
-            System.out.println("Got access token.");
-            System.out.println("Access token: " + accessToken.getToken());
-            System.out.println("Access token secret: " + accessToken.getTokenSecret());
-
-            prop.setProperty("oauth.accessToken", accessToken.getToken());
-            prop.setProperty("oauth.accessTokenSecret", accessToken.getTokenSecret());
-
-            br.close();
-        } catch (TwitterException te) {
-            te.printStackTrace();
-            System.out.println("Failed to get accessToken: " + te.getMessage());
-            logger.error("Error while getting Request Token: ", te);
-            System.exit(-1);
-        }
-    }
-
-    public void getAccessToken(TwitterDemoConfiguration twitterDemoConfiguration) throws IOException {
-        ITwitter iTwitter = ITwitter.getInstance();
-        iTwitter.setOAuthConsumer(twitterDemoConfiguration.getConsumerKey(), twitterDemoConfiguration.getConsumerSecret());
-
-        Properties prop = new Properties();
-        populateAccessKeyToken(prop);
-    }
 }
