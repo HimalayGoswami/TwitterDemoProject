@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.lang.invoke.MethodHandles;
+import java.util.Optional;
 
 @Path("/Tweet")
 public class TweetResource {
@@ -31,15 +32,15 @@ public class TweetResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response postTweet(Tweet tweet) {
-        Tweet status = null;
+        Optional<Tweet> status = null;
         try {
             status = publishTweet.publishTheTweet(tweet.getTweet());
-        } catch (TwitterException e) {
-            e.printStackTrace();
-            logger.error("Error while Tweeting.", e);
-            return Response.status(Response.Status.fromStatusCode(e.getStatusCode())).type(MediaType.APPLICATION_JSON)
-                        .entity(e.getMessage()).build();
+        } catch (TwitterException te) {
+            te.printStackTrace();
+            logger.error("Error while Tweeting.", te);
+            return Response.status(Response.Status.fromStatusCode(te.getStatusCode())).type(MediaType.APPLICATION_JSON)
+                        .entity(te.getMessage()).build();
         }
-        return Response.status(Response.Status.OK).entity(status).build();
+        return Response.status(Response.Status.OK).entity(status.get()).build();
     }
 }

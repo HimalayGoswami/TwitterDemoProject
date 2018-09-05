@@ -8,6 +8,7 @@ import twitter4j.Status;
 import twitter4j.TwitterException;
 
 import java.lang.invoke.MethodHandles;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class PublishTweet {
@@ -44,10 +45,12 @@ public class PublishTweet {
 
     }
 
-    public Tweet publishTheTweet(String tweet) throws TwitterException {
-        Status status = twitter.publishTheTweet(tweet);
+    public Optional<Tweet> publishTheTweet(String tweet) throws TwitterException {
+        Optional<Status> status = twitter.publishTheTweet(tweet);
         System.out.println("Successfully tweeted [" + status + "].");
-        return new Tweet(status);
+        if (status.isPresent())
+            return Optional.of(new Tweet(status.get()));
+        throw new TwitterException("Twitter response Status is null.",new Exception(), 500);
     }
 
     public String getTweetInput() {

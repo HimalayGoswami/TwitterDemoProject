@@ -14,6 +14,7 @@ import twitter4j.auth.RequestToken;
 
 import java.io.*;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
@@ -67,7 +68,7 @@ public class DemoMainTest {
         PowerMockito.whenNew(PublishTweet.class).withAnyArguments().thenReturn(publishTweet);
         when(publishTweet.getTweetInput()).thenReturn("Hello Twitter!");
         Tweet tweet = new Tweet("Hello Twitter!");
-        when(publishTweet.publishTheTweet("Hello Twitter!")).thenReturn(tweet);
+        when(publishTweet.publishTheTweet("Hello Twitter!")).thenReturn(Optional.of(tweet));
 
         try {
             DemoMain.main(new String[]{});

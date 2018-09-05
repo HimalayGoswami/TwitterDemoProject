@@ -7,6 +7,7 @@ import twitter4j.*;
 
 import java.lang.invoke.MethodHandles;
 import java.util.List;
+import java.util.Optional;
 
 public class RetrieveTimeline {
 
@@ -34,23 +35,32 @@ public class RetrieveTimeline {
         }
     }
 
-    public List<Tweet> getUserTimeLine() throws TwitterException {
+    public Optional<List<Tweet>> getUserTimeLine() throws TwitterException {
         return twitter.getUserTimeline();
     }
 
-    public List<Tweet> getHomeTimeLine() throws TwitterException {
+    public Optional<List<Tweet>> getHomeTimeLine() throws TwitterException {
         return twitter.getHomeTimeline();
     }
 
     public void retrieveTheTimeline() throws TwitterException {
-        System.out.println("\nUser Timeline :");
-        System.out.println("---------------");
-        List<Tweet> userTimeLine = getUserTimeLine();
-        userTimeLine.forEach(status -> System.out.println("\n" + status));
 
-        System.out.println("\nHome Timeline :");
-        System.out.println("---------------");
-        List<Tweet> homeTimeLine = getHomeTimeLine();
-        homeTimeLine.forEach(status -> System.out.println("\n" + status));
+        Optional<List<Tweet>> userTimeLine = getUserTimeLine();
+        if (userTimeLine.isPresent()){
+            System.out.println("\nUser Timeline :");
+            System.out.println("---------------");
+            userTimeLine.get().forEach(status -> System.out.println("\n" + status));
+        } else {
+            System.out.println("\nUser Timeline is empty.");
+        }
+
+        Optional<List<Tweet>> homeTimeLine = getHomeTimeLine();
+        if (homeTimeLine.isPresent()) {
+            System.out.println("\nHome Timeline :");
+            System.out.println("---------------");
+            homeTimeLine.get().forEach(status -> System.out.println("\n" + status));
+        } else {
+            System.out.println("\nHome Timeline is empty.");
+        }
     }
 }

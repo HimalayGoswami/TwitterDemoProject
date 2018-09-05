@@ -4,7 +4,6 @@ import com.TwitterDemo.models.Tweet;
 import com.TwitterDemo.services.ITwitter;
 
 import com.TwitterDemo.models.TimeLine;
-import com.TwitterDemo.resources.TimeLineResource;
 import org.mockito.Mockito;
 import twitter4j.*;
 
@@ -28,13 +27,19 @@ public class TimeLineResourceTest {
 
         ITwitter iTwitter = mock(ITwitter.class);
 
-        Mockito.when(iTwitter.getHomeTimeline()).thenReturn(statuses);
+        Mockito.when(iTwitter.getHomeTimeline()).thenReturn(Optional.of(statuses));
         TimeLineResource timeLineResource = new TimeLineResource(iTwitter);
         Response response = timeLineResource.getTimeLine();
         TimeLine responseTimeline = ((TimeLine) response.getEntity());
         assertEquals(timeLine, responseTimeline);
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
 
+        Mockito.when(iTwitter.getHomeTimeline()).thenReturn(Optional.empty());
+        timeLineResource = new TimeLineResource(iTwitter);
+        response = timeLineResource.getTimeLine();
+        responseTimeline = ((TimeLine) response.getEntity());
+        assertTrue(responseTimeline == null);
+        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
 
         TwitterException twitterException = new TwitterException("{errors: {'message': 'twitterException'," +
                 "'code': '777'}}", new Exception(), 400);
@@ -59,12 +64,19 @@ public class TimeLineResourceTest {
 
         ITwitter iTwitter = mock(ITwitter.class);
 
-        Mockito.when(iTwitter.getUserTimeline()).thenReturn(statuses);
+        Mockito.when(iTwitter.getUserTimeline()).thenReturn(Optional.of(statuses));
         TimeLineResource timeLineResource = new TimeLineResource(iTwitter);
         String keyword = "3";
         Response response = timeLineResource.getFilteredUserTweets(keyword);
         TimeLine responseTimeline = ((TimeLine) response.getEntity());
         assertTrue(responseTimeline.getStatuses().size() == 2);
+        assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+
+        Mockito.when(iTwitter.getUserTimeline()).thenReturn(Optional.empty());
+        timeLineResource = new TimeLineResource(iTwitter);
+        response = timeLineResource.getFilteredUserTweets(keyword);
+        responseTimeline = ((TimeLine) response.getEntity());
+        assertTrue(responseTimeline == null);
         assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
 
 
