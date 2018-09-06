@@ -5,6 +5,9 @@ import com.TwitterDemo.services.ITwitter;
 import com.TwitterDemo.PublishTweet;
 import com.codahale.metrics.annotation.Timed;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 import twitter4j.TwitterException;
 
 import javax.ws.rs.Consumes;
@@ -16,9 +19,11 @@ import javax.ws.rs.core.Response;
 import java.lang.invoke.MethodHandles;
 import java.util.Optional;
 
+@Service
 @Path("/Tweet")
 public class TweetResource {
 
+    @Autowired
     private PublishTweet publishTweet;
 
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());

@@ -6,6 +6,10 @@ import com.TwitterDemo.services.ITwitter;
 import com.TwitterDemo.RetrieveTimeline;
 import com.codahale.metrics.annotation.Timed;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 import twitter4j.TwitterException;
 
 import javax.swing.text.html.Option;
@@ -20,10 +24,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Component
 @Path("/api/1.0/")
 @Produces(MediaType.APPLICATION_JSON)
 public class TimeLineResource {
 
+    @Autowired
     private RetrieveTimeline retrieveTimeline;
 
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());

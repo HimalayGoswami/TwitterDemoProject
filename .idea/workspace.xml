@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e247057-0d74-4a57-b828-86b59e9c5dd7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/MyAppSpringConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TwitterDemoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TwitterDemoProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Resources/TimeLineResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Resources/TimeLineResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Resources/TweetResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Resources/TweetResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Services/ITwitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Services/ITwitter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/DemoMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/DemoMainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/PublishTweetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/PublishTweetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/RetrieveTimelineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/RetrieveTimelineTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TimeLineResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TimeLineResourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TweetResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TweetResourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/services/ITwitterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TwitterDemo/services/ITwitterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/TwitterDemoProject-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/TwitterDemoProject-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-TwitterDemoProject-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-TwitterDemoProject-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
@@ -45,28 +44,28 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="MF" value="1" />
-          <entry key="class" value="156" />
+          <entry key="class" value="159" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="12" />
           <entry key="iml" value="3" />
-          <entry key="java" value="412" />
+          <entry key="java" value="436" />
           <entry key="md" value="8" />
           <entry key="properties" value="6" />
           <entry key="txt" value="1" />
-          <entry key="xml" value="17" />
+          <entry key="xml" value="20" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="156" />
+          <entry key="CLASS" value="159" />
           <entry key="HTML" value="12" />
           <entry key="IDEA_MODULE" value="3" />
-          <entry key="JAVA" value="412" />
+          <entry key="JAVA" value="436" />
           <entry key="Manifest" value="1" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="Properties" value="6" />
-          <entry key="XML" value="17" />
+          <entry key="XML" value="20" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
@@ -74,20 +73,20 @@
         <counts>
           <entry key="MF" value="19" />
           <entry key="dummy" value="4" />
-          <entry key="java" value="15702" />
+          <entry key="java" value="15847" />
           <entry key="md" value="69" />
           <entry key="properties" value="41" />
-          <entry key="xml" value="583" />
+          <entry key="xml" value="655" />
           <entry key="yml" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="15702" />
+          <entry key="JAVA" value="15847" />
           <entry key="Manifest" value="19" />
           <entry key="PLAIN_TEXT" value="73" />
           <entry key="Properties" value="41" />
-          <entry key="XML" value="583" />
+          <entry key="XML" value="655" />
           <entry key="YAML" value="33" />
         </counts>
       </usages-collector>
@@ -96,48 +95,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TimeLineResourceTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/PublishTweetTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="86" column="48" lean-forward="true" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/models/Tweet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#598#599#0" expanded="true" />
-                <element signature="e#633#634#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TweetResource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="601">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -148,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/services/ITwitter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+            <state relative-caret-position="66">
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -158,39 +119,58 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/models/TimeLine.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            <state relative-caret-position="129">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#212#213#0" expanded="true" />
-                <element signature="e#250#251#0" expanded="true" />
-                <element signature="e#308#309#0" expanded="true" />
-                <element signature="e#337#338#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar!/javax/ws/rs/core/Response.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TweetResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="924" column="40" selection-start-line="924" selection-start-column="40" selection-end-line="924" selection-end-column="40" />
+            <state relative-caret-position="61">
+              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               <folding>
-                <element signature="e#27504#27505#0" expanded="true" />
-                <element signature="e#27571#27572#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-common/2.25.1/jersey-common-2.25.1-sources.jar!/org/glassfish/jersey/message/internal/OutboundJaxrsResponse.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.8.RELEASE/spring-context-5.0.8.RELEASE.jar!/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="419" column="23" selection-start-line="419" selection-start-column="23" selection-end-line="419" selection-end-column="23" />
+            <state relative-caret-position="167">
+              <caret line="217" selection-start-line="217" selection-end-line="217" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/MyAppSpringConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TweetResourceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="46" column="62" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,24 +178,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TimeLineResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="287">
+              <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
               <folding>
-                <element signature="e#950#951#0" expanded="true" />
-                <element signature="e#1015#1016#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="329">
+              <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -231,7 +216,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>twitter</find>
       <find>twitter</find>
       <find>null</find>
     </findStrings>
@@ -260,13 +244,11 @@
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/api/TweetTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/resources/TwitterDemoConf.yml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TweetResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/api/TimeLineResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/ITwitter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Resources/TimeLineResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/Services/ITwitter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TimeLine.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/models/TimeLine.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/api/TimeLineResourceTest.java" />
@@ -278,19 +260,23 @@
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/models/TweetTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/NoExitSecurityManager.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TimeLineResource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/RetrieveTimelineTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/services/ITwitter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/models/Tweet.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/DemoMainTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TweetResourceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/services/ITwitterTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/DemoMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TweetResource.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TimeLineResourceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/TwitterDemo/PublishTweetTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/MyAppSpringConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/services/ITwitter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TimeLineResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TweetResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -311,7 +297,23 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="TwitterDemoProject" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="TwitterDemoProject" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="TwitterDemoProject" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="TwitterDemoProject" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+          <item name="io.dropwizard:dropwizard-core:1.3.5" type="c0821a7e:MavenProjectsStructure$DependencyNode" />
         </path>
       </expand>
       <select />
@@ -456,119 +458,6 @@
               <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="javax.ws.rs-api-2.0.1.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="javax.ws.rs-api-2.0.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="javax.ws.rs-api-2.0.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="rs" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.glassfish.jersey.core:jersey-common:2.25.1" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.glassfish.jersey.core:jersey-common:2.25.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="jersey-common-2.25.1.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.glassfish.jersey.core:jersey-common:2.25.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="jersey-common-2.25.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="jersey" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.glassfish.jersey.core:jersey-common:2.25.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="jersey-common-2.25.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="jersey" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.glassfish.jersey.core:jersey-common:2.25.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="jersey-common-2.25.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="jersey" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.twitter4j:twitter4j-core:4.0.7" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.twitter4j:twitter4j-core:4.0.7" type="70bed36:NamedLibraryElementNode" />
-              <item name="twitter4j-core-4.0.7.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.twitter4j:twitter4j-core:4.0.7" type="70bed36:NamedLibraryElementNode" />
-              <item name="twitter4j-core-4.0.7.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="twitter4j" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TwitterDemoProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.twitter4j:twitter4j-core:4.0.7" type="70bed36:NamedLibraryElementNode" />
-              <item name="twitter4j-core-4.0.7.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="twitter4j" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -577,7 +466,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536139185087" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536228998662" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -774,10 +663,10 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1119" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="962" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18690096" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21428572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -786,8 +675,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295325" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49821427" visible="true" weight="0.30282375" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49821427" weight="0.33203506" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49821427" visible="true" weight="0.33793104" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49821427" weight="0.33103448" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -802,7 +691,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" sideWeight="0.48868778" visible="true" weight="0.18051118" />
+      <window_info anchor="right" id="Maven Projects" order="7" sideWeight="0.48868778" visible="true" weight="0.20695971" />
       <window_info anchor="right" id="Coverage" order="8" sideWeight="0.51131225" side_tool="true" weight="0.22100122" />
     </layout>
   </component>
@@ -826,7 +715,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TweetResource.java</url>
-          <line>36</line>
+          <line>41</line>
           <properties />
           <option name="timeStamp" value="97" />
         </line-breakpoint>
@@ -841,6 +730,12 @@
           <line>34</line>
           <properties />
           <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TimeLineResource.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/models/TweetTest.java</url>
@@ -860,6 +755,7 @@
         <watch expression="e.toString()" language="JAVA" />
         <watch expression="e.getMessage()" language="JAVA" />
         <watch expression="Response.status(Response.Status.fromStatusCode(e.getStatusCode())).type(MediaType.APPLICATION_JSON)                         .entity(e.getMessage()).build()" language="JAVA" />
+        <watch expression="cli.run(arguments)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1235,106 +1131,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/twitter4j/twitter4j-core/4.0.7/twitter4j-core-4.0.7-sources.jar!/twitter4j/TwitterException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/site/jacoco/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/twitter4j.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TwitterDemoProject.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="130" column="13" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/twitter4j/twitter4j-core/4.0.7/twitter4j-core-4.0.7-sources.jar!/twitter4j/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-api-mockito/1.7.4/powermock-api-mockito-1.7.4-sources.jar!/org/powermock/api/mockito/PowerMockito.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="555" column="41" selection-start-line="555" selection-start-column="41" selection-end-line="555" selection-end-column="41" />
-          <folding>
-            <element signature="e#21301#21302#0" expanded="true" />
-            <element signature="e#21348#21349#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-core/1.10.19/mockito-core-1.10.19-sources.jar!/org/mockito/internal/util/ObjectMethodsGuru.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/powermock/powermock-api-mockito/1.7.4/powermock-api-mockito-1.7.4-sources.jar!/org/powermock/api/mockito/repackaged/MethodInterceptorFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/twitter4j/twitter4j-core/4.0.7/twitter4j-core-4.0.7-sources.jar!/twitter4j/Status.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/models/TimeLineTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/models/TweetTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/NoExitSecurityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="103" column="27" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1392,16 +1188,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1505,41 +1291,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/services/ITwitterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="91" column="46" selection-start-line="91" selection-start-column="46" selection-end-line="91" selection-end-column="46" />
+        <state relative-caret-position="828">
+          <caret line="97" column="67" selection-start-line="97" selection-start-column="67" selection-end-line="97" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#ResponseListImplShunt#0;class#ITwitterTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TweetResourceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="39" column="46" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/DemoMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1573,43 +1329,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TimeLineResourceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/PublishTweetTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="86" column="48" lean-forward="true" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+        <state relative-caret-position="675">
+          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/services/ITwitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TimeLineResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#1015#1016#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1622,6 +1347,26 @@
             <element signature="imports" expanded="true" />
             <element signature="e#598#599#0" expanded="true" />
             <element signature="e#633#634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/DemoMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TimeLineResourceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" column="67" selection-start-line="76" selection-start-column="67" selection-end-line="76" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1640,10 +1385,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TweetResource.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/dropwizard/dropwizard-core/1.3.5/dropwizard-core-1.3.5-sources.jar!/io/dropwizard/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+          <folding>
+            <element signature="e#857#858#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/dropwizard/dropwizard-core/1.3.5/dropwizard-core-1.3.5-sources.jar!/io/dropwizard/cli/ConfiguredCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/dropwizard/dropwizard-core/1.3.5/dropwizard-core-1.3.5-sources.jar!/io/dropwizard/cli/EnvironmentCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.8.RELEASE/spring-context-5.0.8.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="359" selection-start-line="359" selection-end-line="359" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/src.zip!/java/util/LinkedHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="683" selection-start-line="683" selection-end-line="683" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.8.RELEASE/spring-context-5.0.8.RELEASE.jar!/org/springframework/context/annotation/ConfigurationClassBeanDefinitionReader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="217" selection-start-line="217" selection-end-line="217" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/TwitterDemo/resources/TweetResourceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="46" column="62" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/MyAppSpringConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25.1/jersey-server-2.25.1-sources.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25.1/jersey-server-2.25.1-sources.jar!/org/glassfish/jersey/server/model/ResourceMethodInvoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="390" selection-start-line="390" selection-end-line="390" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25.1/jersey-server-2.25.1-sources.jar!/org/glassfish/jersey/server/ServerRuntime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2718">
+          <caret line="333" selection-start-line="333" selection-end-line="333" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.8.RELEASE/spring-context-5.0.8.RELEASE.jar!/org/springframework/stereotype/Service.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/services/ITwitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1652,11 +1508,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/PublishTweet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+        <state relative-caret-position="129">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TweetResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/TwitterDemoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/resources/TimeLineResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/TwitterDemo/RetrieveTimeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
         </state>
       </provider>
     </entry>

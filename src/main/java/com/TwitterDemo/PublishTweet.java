@@ -4,6 +4,9 @@ import com.TwitterDemo.models.Tweet;
 import com.TwitterDemo.services.ITwitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 
@@ -11,8 +14,10 @@ import java.lang.invoke.MethodHandles;
 import java.util.Optional;
 import java.util.Scanner;
 
+@Service
 public class PublishTweet {
 
+    @Autowired
     private ITwitter twitter;
 
     private final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
