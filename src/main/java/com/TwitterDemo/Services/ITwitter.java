@@ -3,19 +3,15 @@ package com.TwitterDemo.services;
 import com.TwitterDemo.TwitterDemoConfiguration;
 import com.TwitterDemo.models.Tweet;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import twitter4j.*;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
-import javax.swing.text.html.Option;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandles;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -134,5 +130,16 @@ public class ITwitter {
         setOAuthConsumer(twitterDemoConfiguration.getConsumerKey(), twitterDemoConfiguration.getConsumerSecret());
         Properties prop = new Properties();
         populateAccessKeyToken(prop);
+    }
+
+    public Optional<List<Tweet>> getFilteredUserTweets(String keyword) throws TwitterException {
+        Optional<List<Tweet>> tweets = getUserTimeline();
+        List<Tweet> filteredTweets = null;
+        if (tweets.isPresent()){
+            filteredTweets = tweets.get().stream()
+                    .filter(tweet -> tweet.getTweet().contains(keyword))
+                    .collect(Collectors.toList());
+        }
+        return Optional.ofNullable(filteredTweets);
     }
 }

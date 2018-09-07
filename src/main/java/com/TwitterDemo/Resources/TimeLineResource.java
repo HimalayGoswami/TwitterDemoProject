@@ -2,6 +2,7 @@ package com.TwitterDemo.resources;
 
 import com.TwitterDemo.models.TimeLine;
 import com.TwitterDemo.models.Tweet;
+import com.TwitterDemo.services.CacheService;
 import com.TwitterDemo.services.ITwitter;
 import com.TwitterDemo.RetrieveTimeline;
 import com.codahale.metrics.annotation.Timed;
@@ -22,6 +23,7 @@ import javax.ws.rs.core.Response;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 @Component
@@ -32,10 +34,14 @@ public class TimeLineResource {
     @Autowired
     private RetrieveTimeline retrieveTimeline;
 
+    @Autowired
+    private CacheService cacheService;
+
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    public TimeLineResource(ITwitter iTwitter) {
+    public TimeLineResource (ITwitter iTwitter, CacheService cacheService) {
         retrieveTimeline = new RetrieveTimeline(iTwitter);
+        this.cacheService = cacheService;
     }
 
     @GET
@@ -62,18 +68,15 @@ public class TimeLineResource {
     public Response getFilteredUserTweets(@PathParam("keyword") String keyword) {
         TimeLine timeLine = null;
         try {
-            Optional<List<Tweet>> tweets = retrieveTimeline.getUserTimeLine();
-            if (tweets.isPresent()){
-                List<Tweet> filteredTweets = tweets.get().stream()
-                        .filter(tweet -> tweet.getTweet().contains(keyword))
-                        .collect(Collectors.toList());
-                timeLine = new TimeLine(filteredTweets);
+            Optional<List<Tweet>> tweets = cacheService.get(keyword);
+            if (tweets.isPresent()) {
+                timeLine = new TimeLine(tweets.get());
             }
-        } catch (TwitterException e) {
+        } catch (ExecutionException e) {
             e.printStackTrace();
             logger.error("Error while getting timeline resource filtered on keyword: {}.", keyword, e);
-            return Response.status(Response.Status.fromStatusCode(e.getStatusCode())).type(MediaType.APPLICATION_JSON)
-                    .entity(e.getMessage()).build();
+            return Response.status(Response.Status.fromStatusCode(Response.Status.INTERNAL_SERVER_ERROR.getStatusCode()))
+                    .type(MediaType.APPLICATION_JSON).entity(e.getMessage()).build();
         }
         return Response.status(Response.Status.OK).entity(timeLine).build();
     }

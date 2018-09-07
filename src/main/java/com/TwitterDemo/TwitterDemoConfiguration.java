@@ -11,6 +11,9 @@ public class TwitterDemoConfiguration extends Configuration {
     @JsonProperty
     private String consumerSecret;
 
+    @JsonProperty
+    private long maxFilteredTweetsCacheWeight;
+
     public String getConsumerKey() {
         return consumerKey;
     }
@@ -25,5 +28,9 @@ public class TwitterDemoConfiguration extends Configuration {
 
     public void setConsumerSecret(String consumerSecret) {
         this.consumerSecret = consumerSecret;
+    }
+
+    public long getMaxFilterCacheWeight() {
+        return maxFilteredTweetsCacheWeight;
     }
 }
