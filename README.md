@@ -2,7 +2,7 @@
 This is Demo Project to explore Twitter4j APIs Publishing a tweet and retrieving Twitter Timelines.
 Instructions to use the application are as following:
 1. Download the JAR file from the below link: 
-  https://github.com/HimalayGoswami/TwitterDemoProject/raw/USE_STREAMS_FOR_FILTER_AT_ENDPOINTS/target/TwitterDemoProject-1.0-SNAPSHOT.jar
+   https://github.com/HimalayGoswami/TwitterDemoProject/raw/USE_STREAMS_FOR_FILTER_AT_ENDPOINTS/target/TwitterDemoProject-1.0-SNAPSHOT.jar
 2. Open terminal, go to the Directory containing the JAR downloaded
 3. Create a ".yml" file, copy the content from below given link:
    https://github.com/HimalayGoswami/TwitterDemoProject/blob/USE_STREAMS_FOR_FILTER_AT_ENDPOINTS/src/main/resources/TwitterDemoConf.yml
