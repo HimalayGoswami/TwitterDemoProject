@@ -1,6 +1,7 @@
 package com.TwitterDemo.resources;
 
 import com.TwitterDemo.models.Tweet;
+import com.TwitterDemo.services.CacheService;
 import com.TwitterDemo.services.ITwitter;
 import com.TwitterDemo.PublishTweet;
 import com.codahale.metrics.annotation.Timed;
@@ -25,10 +26,14 @@ public class TweetResource {
     @Autowired
     private PublishTweet publishTweet;
 
+    @Autowired
+    private CacheService cacheService;
+
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    public TweetResource(ITwitter iTwitter){
+    public TweetResource(ITwitter iTwitter, CacheService cacheService){
         publishTweet = new PublishTweet(iTwitter);
+        this.cacheService = cacheService;
     }
 
     @POST
@@ -39,6 +44,7 @@ public class TweetResource {
         Optional<Tweet> status = null;
         try {
             status = publishTweet.publishTheTweet(tweet.getTweet());
+            cacheService.updateCache(status);
         } catch (TwitterException te) {
             te.printStackTrace();
             logger.error("Error while Tweeting.", te);

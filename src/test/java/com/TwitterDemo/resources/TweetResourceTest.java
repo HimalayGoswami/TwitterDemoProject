@@ -1,13 +1,10 @@
 package com.TwitterDemo.resources;
 
+import com.TwitterDemo.services.CacheService;
 import com.TwitterDemo.services.ITwitter;
 import com.TwitterDemo.models.Tweet;
-import com.TwitterDemo.resources.TweetResource;
-import org.junit.Rule;
+
 import org.junit.Test;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.rule.PowerMockRule;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 import twitter4j.User;
@@ -18,6 +15,8 @@ import javax.ws.rs.core.Response;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -33,7 +32,9 @@ public class TweetResourceTest {
         User user = mock(User.class);
         when(status.getUser()).thenReturn(user);
 
-        TweetResource tweetResource = new TweetResource(iTwitter);
+        CacheService cacheService = mock(CacheService.class);
+        doNothing().when(cacheService).updateCache(any(Optional.class));
+        TweetResource tweetResource = new TweetResource(iTwitter, cacheService);
 
         Tweet tweet = new Tweet("dfsdggferr");
         Response response = tweetResource.postTweet(tweet);

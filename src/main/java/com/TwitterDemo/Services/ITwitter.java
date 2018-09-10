@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandles;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -137,7 +138,7 @@ public class ITwitter {
         List<Tweet> filteredTweets = null;
         if (tweets.isPresent()){
             filteredTweets = tweets.get().stream()
-                    .filter(tweet -> tweet.getTweet().contains(keyword))
+                    .filter(tweet -> Arrays.asList(tweet.getTweet().split(" ")).contains(keyword))
                     .collect(Collectors.toList());
         }
         return Optional.ofNullable(filteredTweets);
