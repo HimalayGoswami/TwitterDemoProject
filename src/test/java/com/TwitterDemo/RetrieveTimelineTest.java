@@ -1,6 +1,7 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.models.Tweet;
+import com.TwitterDemo.services.ITwitter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -11,6 +12,7 @@ import twitter4j.TwitterException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -28,7 +30,8 @@ public class RetrieveTimelineTest {
         ITwitter iTwitter = mock(ITwitter.class);
 
         RetrieveTimeline retrieveTimeline = new RetrieveTimeline(iTwitter);
-
+        when(iTwitter.getUserTimeline()).thenReturn(Optional.empty());
+        when(iTwitter.getHomeTimeline()).thenReturn(Optional.empty());
         retrieveTimeline.retrieveTheTimeline();
         verify(iTwitter).getHomeTimeline();
         verify(iTwitter).getUserTimeline();
@@ -43,16 +46,16 @@ public class RetrieveTimelineTest {
         PowerMockito.mockStatic(ITwitter.class);
         when(ITwitter.getInstance()).thenReturn(iTwitter);
 
-        List<String> userTweets = new ArrayList<>();
-        userTweets.add("userTweet1");
-        userTweets.add("userTweet2");
+        List<Tweet> userTweets = new ArrayList<>();
+        userTweets.add(new Tweet("userTweet1"));
+        userTweets.add(new Tweet("userTweet2"));
 
-        List<String> homeTweets = new ArrayList<>();
-        homeTweets.add("homeTweet1");
-        homeTweets.add("homeTweet2");
+        List<Tweet> homeTweets = new ArrayList<>();
+        homeTweets.add(new Tweet("userTweet1"));
+        homeTweets.add(new Tweet("userTweet2"));
 
-        when(iTwitter.getHomeTimeline()).thenReturn(userTweets);
-        when(iTwitter.getUserTimeline()).thenReturn(homeTweets);
+        when(iTwitter.getHomeTimeline()).thenReturn(java.util.Optional.ofNullable(userTweets));
+        when(iTwitter.getUserTimeline()).thenReturn(java.util.Optional.ofNullable(homeTweets));
         try{
             RetrieveTimeline.main(new String[]{});
         } catch (NoExitSecurityManager.ExitException e) {

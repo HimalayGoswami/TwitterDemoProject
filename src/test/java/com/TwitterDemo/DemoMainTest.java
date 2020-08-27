@@ -1,7 +1,7 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.Resources.Tweet;
-import com.TwitterDemo.Services.ITwitter;
+import com.TwitterDemo.models.Tweet;
+import com.TwitterDemo.services.ITwitter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
@@ -14,9 +14,9 @@ import twitter4j.auth.RequestToken;
 
 import java.io.*;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.Properties;
 
-import static com.TwitterDemo.ITwitterTest.getMockedITwitterInstance;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;
@@ -68,7 +68,7 @@ public class DemoMainTest {
         PowerMockito.whenNew(PublishTweet.class).withAnyArguments().thenReturn(publishTweet);
         when(publishTweet.getTweetInput()).thenReturn("Hello Twitter!");
         Tweet tweet = new Tweet("Hello Twitter!");
-        when(publishTweet.publishTheTweet("Hello Twitter!")).thenReturn(tweet);
+        when(publishTweet.publishTheTweet("Hello Twitter!")).thenReturn(Optional.of(tweet));
 
         try {
             DemoMain.main(new String[]{});

@@ -1,19 +1,27 @@
-package com.TwitterDemo.Services;
+package com.TwitterDemo.services;
 
 import com.TwitterDemo.TwitterDemoConfiguration;
+import com.TwitterDemo.models.Tweet;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import twitter4j.*;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
+import javax.swing.text.html.Option;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
+@Service
 public class ITwitter {
 
     private static ITwitter _ref = null;
@@ -48,24 +56,25 @@ public class ITwitter {
     @Deprecated
     public static void setInstance(ITwitter twitter) { _ref = twitter; };
 
-    public List<String> getHomeTimeline() throws TwitterException {
-        ResponseList<Status> statuses = twitter4j.getHomeTimeline();
-        return getStatuseTexts(statuses);
+    public Optional<List<Tweet>> getHomeTimeline() throws TwitterException {
+        return getTweets(Optional.ofNullable(twitter4j.getHomeTimeline()));
     }
 
-    private List<String> getStatuseTexts(ResponseList<Status> statuses) {
-        List<String> statusTexts = new ArrayList<>();
-        statuses.forEach(status -> statusTexts.add(status.getText()));
-        return statusTexts;
+    private Optional<List<Tweet>> getTweets(Optional<ResponseList<Status>> statuses) {
+        Optional<List<Tweet>> tweets = Optional.empty();
+        if(statuses.isPresent()){
+            List<Tweet> tweetList = statuses.get().stream().map(status -> new Tweet(status)).collect(Collectors.toList());
+            tweets = Optional.ofNullable(tweetList);
+        }
+        return tweets;
     }
 
-    public String publishTheTweet(String tweet) throws TwitterException {
-        return twitter4j.updateStatus(tweet).getText();
+    public Optional<Status> publishTheTweet(String tweet) throws TwitterException {
+        return Optional.ofNullable(twitter4j.updateStatus(tweet));
     }
 
-    public List<String> getUserTimeline() throws TwitterException {
-        ResponseList<Status> statuses = twitter4j.getUserTimeline();
-        return getStatuseTexts(statuses);
+    public Optional<List<Tweet>> getUserTimeline() throws TwitterException {
+        return getTweets(Optional.ofNullable(twitter4j.getUserTimeline()));
     }
 
     public RequestToken getOAuthRequestToken() throws TwitterException {
