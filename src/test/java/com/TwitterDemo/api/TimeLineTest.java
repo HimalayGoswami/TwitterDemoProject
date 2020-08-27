@@ -1,5 +1,6 @@
 package com.TwitterDemo.api;
 
+import com.TwitterDemo.Resources.TimeLine;
 import org.junit.Test;
 
 import java.util.ArrayList;

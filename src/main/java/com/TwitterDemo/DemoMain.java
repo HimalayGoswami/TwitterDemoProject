@@ -1,15 +1,17 @@
 package com.TwitterDemo;
-import twitter4j.Twitter;
+import com.TwitterDemo.Services.ITwitter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
-import twitter4j.auth.AccessToken;
-import twitter4j.auth.RequestToken;
 
 import java.io.*;
+import java.lang.invoke.MethodHandles;
 import java.util.Properties;
 import java.util.Scanner;
 
 public class DemoMain {
+
+    private final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static void main(String[] args) {
 
@@ -32,6 +34,7 @@ public class DemoMain {
                        retrieveTimeline.retrieveTheTimeline();
                    } catch (TwitterException e) {
                        e.printStackTrace();
+                       logger.error("Error while retrieving Timeline: ",e);
                        System.out.println("Failed to retrieve timeline: " + e.getMessage());
                    }
                    break;
@@ -43,6 +46,7 @@ public class DemoMain {
                        publishTweet.publishTheTweet(tweet);
                    } catch (TwitterException te) {
                        te.printStackTrace();
+                       logger.error("Error while publishing the tweet: ", te);
                        System.out.println("Failed to tweet: " + te.getMessage());
                    }
                    break;
@@ -79,7 +83,7 @@ public class DemoMain {
             ITwitter iTwitter = ITwitter.getInstance();
             iTwitter.setOAuthConsumer(args[0], args[1]);
 
-            populateAccessKeyToken(prop);
+            iTwitter.populateAccessKeyToken(prop);
 
             FileOutputStream out = new FileOutputStream(fileObject);
             prop.store(out, "twitter4j.properties");
@@ -88,6 +92,7 @@ public class DemoMain {
             System.out.println("Successfully stored access token to twitter4j.properties.");
         } catch (IOException ioe) {
             ioe.printStackTrace();
+            logger.error("Error while acquiring Access Token: ", ioe);
             System.exit(-1);
         }
 
@@ -101,57 +106,13 @@ public class DemoMain {
             inStream.close();
         } catch (FileNotFoundException e) {
             // consumer key/secret are not set in twitter4j.properties
+            logger.info("twitter4j Properties file doest not exists in directory.");
             if(args.length<2){
+                logger.info("Consumer Key & Secret not provided in Arguments.");
                 System.out.println("Please pass the [consumer key] [consumer secret] arguments");
                 System.exit(-1);
             }
         }
     }
 
-    protected void populateAccessKeyToken(Properties prop) throws IOException {
-        try {
-            ITwitter iTwitter = ITwitter.getInstance();
-            RequestToken requestToken = iTwitter.getOAuthRequestToken();
-            System.out.println("Got request token.");
-            AccessToken accessToken = null;
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            while (null == accessToken) {
-                System.out.println("Open the following URL and grant access to your account:");
-                System.out.println(requestToken.getAuthorizationURL());
-
-                System.out.print("Enter the PIN(if available) and hit enter after you granted access.[PIN]:");
-                String pin = br.readLine();
-                try {
-                    if (pin.length() > 0) {
-                        accessToken = iTwitter.getOAuthAccessToken(requestToken, pin);
-                    } else {
-                        System.out.println("Incorrect PIN, Please try again.");
-                    }
-                } catch (TwitterException te) {
-                    te.printStackTrace();
-                }
-            }
-            System.out.println("Got access token.");
-            System.out.println("Access token: " + accessToken.getToken());
-            System.out.println("Access token secret: " + accessToken.getTokenSecret());
-
-            prop.setProperty("oauth.accessToken", accessToken.getToken());
-            prop.setProperty("oauth.accessTokenSecret", accessToken.getTokenSecret());
-
-            br.close();
-        } catch (TwitterException te) {
-            te.printStackTrace();
-            System.out.println("Failed to get accessToken: " + te.getMessage());
-            System.exit(-1);
-        }
-    }
-
-    public void getAccessToken(TwitterDemoConfiguration twitterDemoConfiguration) throws IOException {
-        ITwitter iTwitter = ITwitter.getInstance();
-        iTwitter.setOAuthConsumer(twitterDemoConfiguration.getConsumerKey(), twitterDemoConfiguration.getConsumerSecret());
-
-        Properties prop = new Properties();
-        populateAccessKeyToken(prop);
-    }
 }
