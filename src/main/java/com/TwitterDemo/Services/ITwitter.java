@@ -3,6 +3,9 @@ package com.TwitterDemo.services;
 import com.TwitterDemo.TwitterDemoConfiguration;
 import com.TwitterDemo.models.Tweet;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import twitter4j.*;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
@@ -18,6 +21,7 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
+@Service
 public class ITwitter {
 
     private static ITwitter _ref = null;
