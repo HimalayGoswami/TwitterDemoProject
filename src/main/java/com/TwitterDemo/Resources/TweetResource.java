@@ -5,6 +5,9 @@ import com.TwitterDemo.services.ITwitter;
 import com.TwitterDemo.PublishTweet;
 import com.codahale.metrics.annotation.Timed;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 import twitter4j.TwitterException;
 
 import javax.ws.rs.Consumes;
@@ -14,10 +17,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.lang.invoke.MethodHandles;
+import java.util.Optional;
 
+@Service
 @Path("/Tweet")
 public class TweetResource {
 
+    @Autowired
     private PublishTweet publishTweet;
 
     private final static org.slf4j.Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -31,15 +37,15 @@ public class TweetResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response postTweet(Tweet tweet) {
-        Tweet status = null;
+        Optional<Tweet> status = null;
         try {
             status = publishTweet.publishTheTweet(tweet.getTweet());
-        } catch (TwitterException e) {
-            e.printStackTrace();
-            logger.error("Error while Tweeting.", e);
-            return Response.status(Response.Status.fromStatusCode(e.getStatusCode())).type(MediaType.APPLICATION_JSON)
-                        .entity(e.getMessage()).build();
+        } catch (TwitterException te) {
+            te.printStackTrace();
+            logger.error("Error while Tweeting.", te);
+            return Response.status(Response.Status.fromStatusCode(te.getStatusCode())).type(MediaType.APPLICATION_JSON)
+                        .entity(te.getMessage()).build();
         }
-        return Response.status(Response.Status.OK).entity(status).build();
+        return Response.status(Response.Status.OK).entity(status.get()).build();
     }
 }

@@ -60,6 +60,11 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <excludes>
+            <exclude>com.TwitterDemo.MyAppSpringConfiguration</exclude>
+          </excludes>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -182,6 +187,7 @@
     <mockito-all.version>1.9.5</mockito-all.version>
     <power-module-junit4.version>1.7.4</power-module-junit4.version>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <spring.version>5.0.8.RELEASE</spring.version>
     <jackson-dataformat-yaml.version>2.9.2</jackson-dataformat-yaml.version>
     <powermock-module-junit4-rule.version>1.7.4</powermock-module-junit4-rule.version>
     <powermock-api-mockito>1.7.4</powermock-api-mockito>
