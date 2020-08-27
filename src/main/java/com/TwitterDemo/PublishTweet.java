@@ -1,13 +1,19 @@
 package com.TwitterDemo;
 
-import com.TwitterDemo.api.Tweet;
+import com.TwitterDemo.Resources.Tweet;
+import com.TwitterDemo.Services.ITwitter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import twitter4j.TwitterException;
 
+import java.lang.invoke.MethodHandles;
 import java.util.Scanner;
 
 public class PublishTweet {
 
     private ITwitter twitter;
+
+    private final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public PublishTweet(ITwitter iTwitter){
         twitter = iTwitter;
@@ -22,6 +28,7 @@ public class PublishTweet {
             PublishTweet publishTweet =  new PublishTweet(ITwitter.getInstance());
             String tweet = publishTweet.getTweetInput();
             if (tweet.equals("")){
+                logger.info("Tweet Entered is Empty.");
                 System.out.println("Tweet can not be empty.");
                 System.exit(-2);
             }
@@ -30,6 +37,7 @@ public class PublishTweet {
         } catch (TwitterException e) {
             e.printStackTrace();
             System.out.println("Failed to tweet: " + e.getMessage());
+            logger.error("Error while Tweeting.", e);
             System.exit(-1);
         }
 

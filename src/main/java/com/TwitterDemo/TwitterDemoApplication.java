@@ -1,24 +1,24 @@
 package com.TwitterDemo;
 
 
-import com.TwitterDemo.api.TimeLineResource;
-import com.TwitterDemo.api.TweetResource;
+import com.TwitterDemo.Resources.TimeLineResource;
+import com.TwitterDemo.Resources.TweetResource;
+import com.TwitterDemo.Services.ITwitter;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
-
-import java.util.Arrays;
 
 public class TwitterDemoApplication extends Application<TwitterDemoConfiguration> {
 
     public static void main(String[] args) throws Exception {
-        DemoMain demoMain = new DemoMain();
-        demoMain.getAccessToken(args);
-        String[] strArgs = Arrays.stream(args).skip(2).toArray(String[]::new);
-        new TwitterDemoApplication().run(strArgs);
+        new TwitterDemoApplication().run(args);
     }
 
     @Override
     public void run(TwitterDemoConfiguration twitterDemoConfiguration, Environment environment) throws Exception {
+
+        ITwitter iTwitter = ITwitter.getInstance();
+        iTwitter.getAccessToken(twitterDemoConfiguration);
+
         final TimeLineResource timelinesResource = new TimeLineResource(ITwitter.getInstance());
         environment.jersey().register(timelinesResource);
 
