@@ -3,7 +3,6 @@ package com.TwitterDemo.services;
 import com.TwitterDemo.NoExitSecurityManager;
 import com.TwitterDemo.TwitterDemoConfiguration;
 import com.TwitterDemo.models.Tweet;
-import com.TwitterDemo.services.ITwitter;
 import org.junit.Rule;
 import org.junit.Test;
 import org.powermock.api.mockito.PowerMockito;
@@ -17,6 +16,7 @@ import java.io.BufferedReader;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;
@@ -72,11 +72,15 @@ public class ITwitterTest {
         when(twitter.getHomeTimeline()).thenReturn(statusResponseList);
         when(twitter.getUserTimeline()).thenReturn(statusResponseList);
 
-        List<Tweet> statuses = iTwitter.getUserTimeline();
-        assertTrue("status1".equals(statuses.get(0).getTweet()));
+        Optional<List<Tweet>> statuses = iTwitter.getUserTimeline();
+        assertTrue("status1".equals(statuses.get().get(0).getTweet()));
 
         statuses = iTwitter.getHomeTimeline();
-        assertTrue("status1".equals(statuses.get(0).getTweet()));
+        assertTrue("status1".equals(statuses.get().get(0).getTweet()));
+
+        when(twitter.getUserTimeline()).thenReturn(null);
+        statuses = iTwitter.getUserTimeline();
+        assertFalse(statuses.isPresent());
 
         iTwitter.setInstance(null);
     }
@@ -88,14 +92,13 @@ public class ITwitterTest {
         Twitter twitter = mock(Twitter.class);
         ITwitter iTwitter = getMockedITwitterInstance(twitter);
 
-
         String tweet = "Hello Twitter!!!";
         when(status.getText()).thenReturn(tweet);
         when(twitter.updateStatus(tweet)).thenReturn(status);
-        Status tweetRespStatus = iTwitter.publishTheTweet(tweet);
+        Optional<Status> tweetRespStatus = iTwitter.publishTheTweet(tweet);
 
         verify(twitter).updateStatus(tweet);
-        assertEquals(tweet, tweetRespStatus.getText());
+        assertEquals(tweet, tweetRespStatus.get().getText());
 
         ITwitter.setInstance(null);
     }

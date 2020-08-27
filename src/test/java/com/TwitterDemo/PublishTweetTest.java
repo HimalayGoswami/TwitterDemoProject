@@ -13,6 +13,7 @@ import twitter4j.User;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -42,10 +43,10 @@ public class PublishTweetTest {
         when(ITwitter.getInstance()).thenReturn(iTwitter);
         Status status = mock(Status.class);
         when(status.getText()).thenReturn("dfsdggferr");
-        when(iTwitter.publishTheTweet("dfsdggferr")).thenReturn(status);
+        when(iTwitter.publishTheTweet("dfsdggferr")).thenReturn(Optional.of(status));
         User user = mock(User.class);
         when(status.getUser()).thenReturn(user);
-        when(iTwitter.publishTheTweet("Tweet!!!")).thenReturn(status);
+        when(iTwitter.publishTheTweet("Tweet!!!")).thenReturn(Optional.of(status));
 
         SecurityManager securityManager = System.getSecurityManager();
         System.setSecurityManager(new NoExitSecurityManager());
@@ -80,4 +81,18 @@ public class PublishTweetTest {
         System.setIn(stdin);
     }
 
+    @Test
+    public void publishTheTweet() throws TwitterException {
+        ITwitter iTwitter = mock(ITwitter.class);
+        PowerMockito.mockStatic(ITwitter.class);
+        when(ITwitter.getInstance()).thenReturn(iTwitter);
+        when(iTwitter.publishTheTweet("dfsdggferr")).thenReturn(Optional.empty());
+
+        try {
+            PublishTweet publishTweet = new PublishTweet(iTwitter);
+            publishTweet.publishTheTweet("dfsdggferr");
+        } catch (TwitterException e) {
+            assertTrue(e.getStatusCode() == 500);
+        }
+    }
 }

@@ -15,6 +15,8 @@ import twitter4j.User;
 import javax.ws.rs.core.Response;
 
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -27,7 +29,7 @@ public class TweetResourceTest {
 
         Status status = mock(Status.class);
         when(status.getText()).thenReturn("dfsdggferr");
-        when(iTwitter.publishTheTweet("dfsdggferr")).thenReturn(status);
+        when(iTwitter.publishTheTweet("dfsdggferr")).thenReturn(Optional.of(status));
         User user = mock(User.class);
         when(status.getUser()).thenReturn(user);
 

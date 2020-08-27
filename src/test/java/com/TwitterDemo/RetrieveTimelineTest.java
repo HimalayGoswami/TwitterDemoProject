@@ -12,6 +12,7 @@ import twitter4j.TwitterException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -29,7 +30,8 @@ public class RetrieveTimelineTest {
         ITwitter iTwitter = mock(ITwitter.class);
 
         RetrieveTimeline retrieveTimeline = new RetrieveTimeline(iTwitter);
-
+        when(iTwitter.getUserTimeline()).thenReturn(Optional.empty());
+        when(iTwitter.getHomeTimeline()).thenReturn(Optional.empty());
         retrieveTimeline.retrieveTheTimeline();
         verify(iTwitter).getHomeTimeline();
         verify(iTwitter).getUserTimeline();
@@ -52,8 +54,8 @@ public class RetrieveTimelineTest {
         homeTweets.add(new Tweet("userTweet1"));
         homeTweets.add(new Tweet("userTweet2"));
 
-        when(iTwitter.getHomeTimeline()).thenReturn(userTweets);
-        when(iTwitter.getUserTimeline()).thenReturn(homeTweets);
+        when(iTwitter.getHomeTimeline()).thenReturn(java.util.Optional.ofNullable(userTweets));
+        when(iTwitter.getUserTimeline()).thenReturn(java.util.Optional.ofNullable(homeTweets));
         try{
             RetrieveTimeline.main(new String[]{});
         } catch (NoExitSecurityManager.ExitException e) {
