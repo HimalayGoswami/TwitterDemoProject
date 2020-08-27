@@ -25,10 +25,11 @@ public class PublishTweet {
 
     }
 
-    protected static void publishTheTweet(String tweet) throws TwitterException {
+    public static Status publishTheTweet(String tweet) throws TwitterException {
         Twitter twitter = new TwitterFactory("../").getInstance();
         Status status = twitter.updateStatus(tweet);
         System.out.println("Successfully tweeted [" + status.getText() + "].");
+        return status;
     }
 
     protected static String getTweetInput() throws Exception {

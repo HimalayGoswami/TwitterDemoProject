@@ -57,42 +57,47 @@ public class DemoMain {
         System.exit(0);
     }
 
-    private static void getAccessToken(String[] args) {
+    protected static void getAccessToken(String[] args) {
 
         Properties prop = new Properties();
         try {
 
-            if (args.length < 2) {
-                try {
-                    File fileObject = new File("twitter4j.properties");
-                    InputStream inStream = new FileInputStream(fileObject);
-                    prop.load(inStream);
-                    inStream.close();
-                } catch (FileNotFoundException e) {
-                    // consumer key/secret are not set in twitter4j.properties
-                    System.out.println("Please pass the [consumer key] [consumer secret] arguments");
-                    System.exit(-1);
-                }
-
-                if (null == prop.getProperty("oauth.consumerKey")
-                        && null == prop.getProperty("oauth.consumerSecret")) {
-                    // consumer key/secret are not set in twitter4j.properties
-                    System.out.println("Please pass the [consumer key] [consumer secret] arguments");
-                    System.exit(-1);
-                }
-            } else {
-                InputStream inStream = DemoMain.class.getClassLoader().getResourceAsStream("twitter4j.properties");
+            try {
+                File fileObject = new File("twitter4j.properties");
+                InputStream inStream = new FileInputStream(fileObject);
                 prop.load(inStream);
                 inStream.close();
-                prop.setProperty("oauth.consumerKey", args[0]);
-                prop.setProperty("oauth.consumerSecret", args[1]);
-
-                File fileObject = new File("twitter4j.properties");
-                FileOutputStream out = new FileOutputStream(fileObject);
-                prop.store(out, "twitter4j.properties");
-                out.close();
-                System.out.println("ConsumerKey & consumerSecret Stored.");
+            } catch (FileNotFoundException e) {
+                // consumer key/secret are not set in twitter4j.properties
+                System.out.println("Please pass the [consumer key] [consumer secret] arguments");
+                System.exit(-1);
             }
+
+            if (null == prop.getProperty("oauth.consumerKey")
+                    && null == prop.getProperty("oauth.consumerSecret")) {
+                // consumer key/secret are not set in twitter4j.properties
+                System.out.println("Please pass the [consumer key] [consumer secret] arguments");
+                System.exit(-1);
+            }
+            InputStream inStream = DemoMain.class.getClassLoader().getResourceAsStream("twitter4j.properties");
+            prop.load(inStream);
+            inStream.close();
+            String oldConsumerKey = prop.getProperty("oauth.consumerKey");
+            String oldConsumerSecret = prop.getProperty("oauth.consumerSecret");
+            prop.setProperty("oauth.consumerKey", args[0]);
+            prop.setProperty("oauth.consumerSecret", args[1]);
+
+            if (oldConsumerKey == null || !oldConsumerKey.equals(args[0])
+                    || oldConsumerSecret == null || !oldConsumerSecret.equals(args[1])) {
+                prop.remove("oauth.accessToken");
+                prop.remove("oauth.accessTokenSecret");
+            }
+
+            File fileObject = new File("twitter4j.properties");
+            FileOutputStream out = new FileOutputStream(fileObject);
+            prop.store(out, "twitter4j.properties");
+            out.close();
+            System.out.println("ConsumerKey & consumerSecret Stored.");
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.exit(-1);
