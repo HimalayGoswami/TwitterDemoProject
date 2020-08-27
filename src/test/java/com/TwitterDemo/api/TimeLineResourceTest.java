@@ -1,7 +1,9 @@
 package com.TwitterDemo.api;
 
-import com.TwitterDemo.ITwitter;
+import com.TwitterDemo.Services.ITwitter;
 
+import com.TwitterDemo.Resources.TimeLine;
+import com.TwitterDemo.Resources.TimeLineResource;
 import org.mockito.Mockito;
 import twitter4j.*;
 

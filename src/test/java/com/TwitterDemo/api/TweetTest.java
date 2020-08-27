@@ -1,5 +1,6 @@
 package com.TwitterDemo.api;
 
+import com.TwitterDemo.Resources.Tweet;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
