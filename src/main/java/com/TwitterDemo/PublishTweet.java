@@ -1,45 +1,58 @@
 package com.TwitterDemo;
 
-import twitter4j.Status;
-import twitter4j.Twitter;
+import com.TwitterDemo.Resources.Tweet;
+import com.TwitterDemo.Services.ITwitter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
 
+import java.lang.invoke.MethodHandles;
 import java.util.Scanner;
 
 public class PublishTweet {
+
+    private ITwitter twitter;
+
+    private final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
+    public PublishTweet(ITwitter iTwitter){
+        twitter = iTwitter;
+    }
+
+    public PublishTweet() {
+
+    }
+
     public static void main(String[] args) {
         try {
-            String tweet = getTweetInput();
-            publishTheTweet(tweet);
+            PublishTweet publishTweet =  new PublishTweet(ITwitter.getInstance());
+            String tweet = publishTweet.getTweetInput();
+            if (tweet.equals("")){
+                logger.info("Tweet Entered is Empty.");
+                System.out.println("Tweet can not be empty.");
+                System.exit(-2);
+            }
+            publishTweet.publishTheTweet(tweet);
             System.exit(0);
-        } catch (TwitterException var2) {
-            var2.printStackTrace();
-            System.out.println("Failed to tweet: " + var2.getMessage());
-            System.exit(-1);
-        } catch (Exception var3) {
-            var3.printStackTrace();
-            System.out.println("Failed to tweet: " + var3.getMessage());
+        } catch (TwitterException e) {
+            e.printStackTrace();
+            System.out.println("Failed to tweet: " + e.getMessage());
+            logger.error("Error while Tweeting.", e);
             System.exit(-1);
         }
 
     }
 
-    public static Status publishTheTweet(String tweet) throws TwitterException {
-        Twitter twitter = new TwitterFactory("../").getInstance();
-        Status status = twitter.updateStatus(tweet);
-        System.out.println("Successfully tweeted [" + status.getText() + "].");
-        return status;
+    public Tweet publishTheTweet(String tweet) throws TwitterException {
+        String status = twitter.publishTheTweet(tweet);
+        System.out.println("Successfully tweeted [" + status + "].");
+        return new Tweet(status);
     }
 
-    protected static String getTweetInput() throws Exception {
+    public String getTweetInput() {
         System.out.println("Please input the tweet to publish: ");
         Scanner scanner = new Scanner(System.in);
         String tweet = scanner.nextLine();
-        if (tweet != null && !tweet.trim().equals("")) {
-            return tweet;
-        } else {
-            throw new Exception("Tweet can not be empty");
-        }
+        return tweet.trim();
     }
 }
