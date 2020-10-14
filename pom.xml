@@ -20,7 +20,7 @@
         <powermock-api-mockito>1.7.4</powermock-api-mockito>
         <powermock-module-junit4-rule.version>1.7.4</powermock-module-junit4-rule.version>
         <powermock-classloading-xstream.version>1.7.4</powermock-classloading-xstream.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>
         <jackson-dataformat-yaml.version>2.9.2</jackson-dataformat-yaml.version>
         <slf4j.version>1.7.25</slf4j.version>
